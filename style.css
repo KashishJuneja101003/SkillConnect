@@ -1,0 +1,83 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Video container */
+video {
+    border: 2px solid #0077cc;
+    border-radius: 10px;
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    background-color: #000;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Session input and button */
+input#sessionId {
+    margin: 20px 5px;
+    padding: 10px;
+    width: 200px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input#sessionId:focus {
+    border-color: #0077cc;
+    box-shadow: 0 0 5px rgba(0, 119, 204, 0.5);
+}
+
+button {
+    background-color: #0077cc;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #005fa3;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Layout for videos */
+#videos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#localVideo,
+#remoteVideo {
+    display: block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    video {
+        width: 100%;
+        height: auto;
+    }
+}
