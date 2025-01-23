@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Mentor Profile</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+    .form-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .form-header h1 {
+      font-size: 1.8rem;
+      color: #007bff;
+    }
+    .form-label {
+      font-weight: bold;
+      color: #343a40;
+    }
+    .form-control {
+      font-weight: normal;
+      padding: 12px;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #004182;
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+    .btn-secondary:hover {
+      background-color: #5a6268;
+      border-color: #545b62;
+    }
+    .bold-text {
+      font-weight: bold;
+      color: #007bff;
+    }
+    .cancel-button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-header">
+      <h1>Update Profile for <%= mentor.name %></h1>
+    </div>
+    <form action="/updateMentorProfile/<%= mentor._id %>?_method=put" method="POST" >
+      <!-- Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="name" 
+          name="name" 
+          value="<%= mentor.name %>" 
+          required>
+      </div>
+      
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input 
+          type="email" 
+          class="form-control" 
+          id="email" 
+          name="email" 
+          value="<%= mentor.email %>" 
+          required>
+      </div>
+      
+      <!-- Phone -->
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="phone" 
+          name="phone" 
+          value="<%= mentor.phone || '' %>">
+      </div>
+      
+      <!-- LinkedIn -->
+      <div class="mb-3">
+        <label for="linkedin" class="form-label">LinkedIn Profile</label>
+        <input 
+          type="url" 
+          class="form-control" 
+          id="linkedin" 
+          name="linkedin" 
+          value="<%= mentor.linkedin || '' %>">
+      </div>
+      
+      <!-- Skills -->
+      <div class="mb-3">
+        <label for="skills" class="form-label">Skills</label>
+        <textarea 
+          class="form-control" 
+          id="skills" 
+          name="skills" 
+          rows="3"
+          required><%= mentor.skills %></textarea>
+      </div>
+      
+      <!-- Experience -->
+      <div class="mb-3">
+        <label for="experience" class="form-label">Experience (in years)</label>
+        <input 
+          type="number" 
+          class="form-control" 
+          id="experience" 
+          name="experience" 
+          value="<%= mentor.experience %>" 
+          required>
+      </div>
+      
+      <!-- Mentorship Areas -->
+      <div class="mb-3">
+        <label for="mentorshipArea" class="form-label">Mentorship Areas</label>
+        <textarea 
+          class="form-control" 
+          id="mentorshipArea" 
+          name="mentorshipArea" 
+          rows="3"
+          required><%= mentor.mentorshipArea %></textarea>
+      </div>
+      
+      <!-- Submit Button -->
+      <div class="text-center">
+        
+    <button type="submit" class="btn btn-primary">Update Profile</button>
+        <a href="/cancelUpdate" class="btn btn-secondary cancel-button">Cancel</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

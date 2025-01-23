@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentors List</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .card {
+      border: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .btn-linkedin {
+      color: #0a66c2;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .btn-linkedin:hover {
+      color: #004182;
+      text-decoration: underline;
+    }
+
+    .no-mentors {
+      font-size: 1.5rem;
+      color: #6c757d;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Meet Our Mentors</h1>
+
+    <!-- Mentor Cards -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <% if (allMentor.length > 0) { %>
+        <% allMentor.forEach(mentor => { %>
+          <div class="col">
+            <a href="/mentorProfile/<%= mentor._id %>" class="text-decoration-none text-dark">
+              <div class="card h-100 shadow-sm">
+                <!-- Mentor Image -->
+                <!-- <img 
+                  src="<%= mentor.image || 'https://via.placeholder.com/200x200?text=No+Image' %>" 
+                  class="card-img-top" 
+                  alt="<%= mentor.name %>'s Profile Picture"
+                > -->
+                <div class="card-body">
+                  <h5 class="card-title"><%= mentor.name %></h5>
+                  <p class="card-text"><strong>Email:</strong> <%= mentor.email %></p>
+                  <p class="card-text"><strong>Phone:</strong> <%= mentor.phone || "Not Provided" %></p>
+                  <p class="card-text"><strong>Skills:</strong> <%= mentor.skills %></p>
+                  <p class="card-text"><strong>Experience:</strong> <%= mentor.experience %> years</p>
+                  <p class="card-text"><strong>Mentorship Areas:</strong> <%= mentor.mentorshipArea %></p>
+                  <% if (mentor.linkedin) { %>
+                    <a href="<%= mentor.linkedin %>" target="_blank" class="btn-linkedin">
+                      View LinkedIn Profile
+                    </a>
+                  <% } %>
+                </div>
+              </div>
+            </a>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <!-- No Mentors Message -->
+        <div class="col-12">
+          <p class="no-mentors">No mentors are available at the moment. Please check back later!</p>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

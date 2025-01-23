@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Course</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/mentee_style/style.css" />
+</head>
+<body>
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Create New Course</h2>
+        <form action="/newCourseAdd" method="POST">
+
+            <!-- Course Information -->
+            <div class="mb-3">
+                <label for="courseName" class="form-label">Course Name: <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="courseName" name="courseName" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description: <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Course Image (URL): <span class="text-danger">*</span></label>
+                <input type="url" class="form-control" id="image" name="image" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="mentorName" class="form-label">Mentor Name: <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="mentorName" name="mentorName" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="date" class="form-label">Course Date: <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="time" class="form-label">Course Time: <span class="text-danger">*</span></label>
+                <input type="time" class="form-control" id="time" name="time" required>
+            </div>
+
+            <br><br>
+
+            <!-- Submit Button -->
+         
+            <button type="submit" class="button">Submit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
